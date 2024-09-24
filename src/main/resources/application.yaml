@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://usuariodb:eA73y3tw7ZFCTDL3@clustercertus.0rf0u.mongodb.net/test?retryWrites=true&w=majority&appName=ClusterCertus
+  application:
+    name:appmongo
