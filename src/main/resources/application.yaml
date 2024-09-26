@@ -1,6 +1,17 @@
+server:
+  port: 8089
+
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://usuariodb:eA73y3tw7ZFCTDL3@clustercertus.0rf0u.mongodb.net/test?retryWrites=true&w=majority&appName=ClusterCertus
+      mapping:
+      uri: mongodb+srv://ebarrientos:rlD4McyEGxim5Ev2@clusterise.59mtk0v.mongodb.net/test?retryWrites=true&w=majority&appName=ClusterISE
   application:
-    name:appmongo
+    name: appmongo
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

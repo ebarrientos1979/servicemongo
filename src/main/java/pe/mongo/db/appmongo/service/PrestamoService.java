@@ -1,4 +1,6 @@
 package pe.mongo.db.appmongo.service;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 import pe.mongo.db.appmongo.dto.PrestamoDto;
 import pe.mongo.db.appmongo.model.Prestamo;
@@ -34,6 +36,7 @@ public class PrestamoService {
     }
 
     public void guardarPrestamo(PrestamoDto prestamoDto) {
+
         Prestamo prestamo = Prestamo.builder()
                 .id(prestamoDto.getId())
                 .nombre(prestamoDto.getNombre())

@@ -1,10 +1,7 @@
 package pe.mongo.db.appmongo.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pe.mongo.db.appmongo.dto.PrestamoDto;
 import pe.mongo.db.appmongo.service.PrestamoService;
 
@@ -27,7 +24,7 @@ public class PrestamoController {
     }
 
     @PostMapping("/savePrestamo")
-    public void savePrestamo(PrestamoDto prestamoDto) {
+    public void savePrestamo(@RequestBody PrestamoDto prestamoDto) {
         this.prestamoService.guardarPrestamo(prestamoDto);
     }
 
