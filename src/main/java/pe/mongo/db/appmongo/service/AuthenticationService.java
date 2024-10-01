@@ -20,7 +20,7 @@ public class AuthenticationService implements IAuthenticationService {
         this.jwtService = jwtService;
         this.authenticationManager = authenticationManager;
     }
-    
+
 
     @Override
     public JwtAuthenticationResponse signup(SignUpRequest request) {

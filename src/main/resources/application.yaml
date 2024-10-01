@@ -23,3 +23,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
+token:
+  signin:
+    key: 2ae3caf0db25c9e19adf43b7e206a54223986cc477a2f4de3c5a8d2377f66efd
