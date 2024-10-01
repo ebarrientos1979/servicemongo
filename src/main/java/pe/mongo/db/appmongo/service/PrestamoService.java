@@ -37,7 +37,7 @@ public class PrestamoService {
 
     public void guardarPrestamo(PrestamoDto prestamoDto) {
 
-        Prestamo prestamo = Prestamo.builder()
+        /*Prestamo prestamo = Prestamo.builder()
                 .id(prestamoDto.getId())
                 .nombre(prestamoDto.getNombre())
                 .apellido(prestamoDto.getApellido())
@@ -46,6 +46,7 @@ public class PrestamoService {
                 .fecha(prestamoDto.getFecha())
                 .estado(prestamoDto.getEstado())
                 .build();
-        prestamoRepository.save(prestamo);
+        prestamoRepository.save(prestamo);*/
+        return;
     }
 }
