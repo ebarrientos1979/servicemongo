@@ -1,5 +1,6 @@
 package pe.mongo.db.appmongo.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pe.mongo.db.appmongo.dto.PrestamoDto;
@@ -18,6 +19,7 @@ public class PrestamoController {
         this.prestamoService = prestamoService;
     }
 
+    @Operation(summary = "Obtener Prestamo", description = "WS que permite obtener los prestamos de la base de datos")
     @GetMapping("/getPrestamo")
     public ResponseEntity<List<PrestamoDto>> getPrestamo() {
         return ok(this.prestamoService.obtenerPrestamos());
