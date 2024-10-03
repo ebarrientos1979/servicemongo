@@ -2,6 +2,7 @@ package pe.mongo.db.appmongo.service;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
@@ -70,7 +71,7 @@ public class AuthenticationService implements IAuthenticationService {
 }
 
 @Data
-@AllArgsConstructor
+@NoArgsConstructor
 class UsuarioDetail implements UserDetails{
     private String email;
     private String password;

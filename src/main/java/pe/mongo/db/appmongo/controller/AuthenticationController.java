@@ -13,7 +13,6 @@ import pe.mongo.db.appmongo.service.AuthenticationService;
 
 @RestController
 @RequestMapping("/api/v1/auth")
-@RequiredArgsConstructor
 public class AuthenticationController {
 
     private final AuthenticationService authenticationService;
