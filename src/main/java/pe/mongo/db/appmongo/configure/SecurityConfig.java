@@ -46,8 +46,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeRequests(
-                    request -> request.requestMatchers("/api/v1/auth/**")
-                            .permitAll().anyRequest().authenticated()
+                    request -> request.requestMatchers("/api/v1/auth/signup")
+                            .permitAll()
             )
                 .sessionManagement(
                         manager -> manager.sessionCreationPolicy(STATELESS)
