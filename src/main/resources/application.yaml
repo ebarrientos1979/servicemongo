@@ -7,7 +7,7 @@ management:
       show-details: always
 
 server:
-  port: 8089
+  port: 0
 
 spring:
   data:

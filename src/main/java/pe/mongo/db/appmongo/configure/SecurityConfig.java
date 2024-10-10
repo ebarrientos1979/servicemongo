@@ -28,6 +28,7 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter) {
+        System.out.println("SecurityConfig");
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     }
 
@@ -39,27 +40,24 @@ public class SecurityConfig {
     @Bean
     public AuthenticationManager authenticationManager(
             AuthenticationConfiguration config) throws  Exception{
+        System.out.println("authenticationManager");
         return config.getAuthenticationManager();
     }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        System.out.println("SecurityFilterChain");
         http
             .authorizeRequests(
-                    request -> request.requestMatchers("/api/v1/auth/signup")
-                            .permitAll()
-            )
-                .sessionManagement(
-                        manager -> manager.sessionCreationPolicy(STATELESS)
-                )
-                .authenticationProvider( authenticationProvider() ).addFilterBefore(
-                        jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class
-                );
+                    request -> request.requestMatchers("/prestamo/**")
+                            .permitAll().anyRequest().authenticated()
+            );
         return http.build();
     }
 
     @Bean
     public AuthenticationProvider authenticationProvider(){
+        System.out.println("authenticationProvider");
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userDetailsService());
         authProvider.setPasswordEncoder(passwordEncoder());
@@ -67,6 +65,7 @@ public class SecurityConfig {
     }
 
     private UserDetailsService userDetailsService() {
+        System.out.println("userDetailsService");
         return new UserDetailsService() {
             @Override
             public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

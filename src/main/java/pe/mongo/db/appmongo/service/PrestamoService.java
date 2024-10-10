@@ -1,6 +1,8 @@
 package pe.mongo.db.appmongo.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import pe.mongo.db.appmongo.dto.PrestamoDto;
 import pe.mongo.db.appmongo.model.Prestamo;
@@ -12,6 +14,8 @@ import java.util.List;
 @Service
 public class PrestamoService {
     PrestamoRepository prestamoRepository;
+    @Autowired
+    private Environment environment;
 
     public PrestamoService(PrestamoRepository prestamoRepository) {
         this.prestamoRepository = prestamoRepository;
@@ -25,7 +29,7 @@ public class PrestamoService {
             listRespuesta.add(PrestamoDto.builder()
                     .id(prestamo.getId())
                     .nombre(prestamo.getNombre())
-                    .apellido(prestamo.getApellido())
+                    .apellido(environment.getProperty("local.server.port"))
                     .dni(prestamo.getDni())
                     .monto(prestamo.getMonto())
                     .fecha(prestamo.getFecha())

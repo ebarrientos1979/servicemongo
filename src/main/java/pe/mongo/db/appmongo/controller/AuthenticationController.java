@@ -1,6 +1,5 @@
 package pe.mongo.db.appmongo.controller;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +13,6 @@ import pe.mongo.db.appmongo.service.AuthenticationService;
 @RestController
 @RequestMapping("/api/v1/auth")
 public class AuthenticationController {
-
     private final AuthenticationService authenticationService;
 
     public AuthenticationController(AuthenticationService authenticationService) {
@@ -22,9 +20,10 @@ public class AuthenticationController {
     }
 
     @PostMapping("/signin")
-    public ResponseEntity<JwtAuthenticationResponse> signUp(
-            @RequestBody SignUpRequest signUpRequest
+    public ResponseEntity<JwtAuthenticationResponse> signIn(
+            @RequestBody SignInRequest signInRequest
     ){
+        //JwtAuthenticationResponse response = authenticationService.authenticate(signInRequest);
         return ResponseEntity.ok(null);
     }
 

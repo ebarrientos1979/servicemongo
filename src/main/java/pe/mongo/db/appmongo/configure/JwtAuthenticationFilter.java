@@ -20,7 +20,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             @NotNull HttpServletResponse response,
             @NotNull FilterChain filterChain
             ) throws ServletException, IOException {
-        System.out.println("JwtAuthenticationFilter.doFilterInternal");
+
         filterChain.doFilter(request, response);
     }
 
